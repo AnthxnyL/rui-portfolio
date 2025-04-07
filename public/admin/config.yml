@@ -9,26 +9,53 @@ media_folder: "src/assets/images" # Emplacement où les fichiers seront stockés
 public_folder: "src/assets/images" # L'attribut src pour les médias téléchargés
 
 collections:
-    - name: "Home"
-      label: "Page d'accueil"
-      files:
-        - file: "src/content/home.md"
-          label: "Page d'accueil"
-          name: "home_list"
-          fields:
-            - { label: "Titre", name: "title", widget: "string" }
-            - { label: "Image principale", name: "hero_image", widget: "image" }
-            - { label : "Slug", name: "slug", widget: "string" }
-            - label : "Hero section"
-              name : "hero_section"
-              widget : "object"
-              fields :
-                - { label: "Titre", name: "title", widget: "string" }
-                - { label: "Texte", name: "text", widget: "text" }
-            - label : "About section"
-              name : "about_section"
-              widget : "object"
-              fields :
-                - { label: "Titre", name: "title", widget: "string" }
-                - { label: "Texte", name: "text", widget: "text" }
-                - { label: "Image", name: "about_image", widget: "image" }
+  - name: "Home"
+    label: "Page d'accueil"
+    files:
+      - file: "src/content/home.md"
+        label: "Page d'accueil"
+        name: "home_list"
+        fields:
+          - label : "Hero section"
+            name : "hero_section"
+            widget : "object"
+            fields :
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Texte", name: "text", widget: "text" }
+          - label : "About section"
+            name : "about_section"
+            widget : "object"
+            fields :
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Image", name: "about_image", widget: "image" }
+              - label : "Mes expériences"
+                name : "experiences"
+                widget : "list"
+                fields :
+                  - { label: "Entreprise", name: "company", widget: "string" }
+                  - { label: "Conrat", name: "contract", widget: "string" }
+                  - { label: "Date de début", name: "start_date", widget: "datetime" }
+                  - { label: "Date de fin", name: "end_date", widget: "datetime" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label : "Links"
+            name : "links"
+            widget : "list"
+            fields :
+              - { label: "Nom", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Type", name: "type", widget: "select", options: [ "Email", "Social", "Phone" ] }
+
+  - name: "Projects"
+    label: "Projets"
+    folder: "src/content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Date", name: "date", widget: "string" }
+      - { label: "Domaine", name: "field", widget: "string" }
+      - { 
+          label: "Images", name: 'images', widget: "list",
+          field: { label: "Image", name: "image", widget: "image" } 
+        }
