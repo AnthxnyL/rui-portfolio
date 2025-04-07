@@ -1,15 +1,13 @@
 ---
-import { frontmatter as realisation } from '../content/realisation.md';
+import { frontmatter as home } from '../content/home.md';
 import "../styles/global.css";
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+
 
 ---
 
 <Layout>
-	<h1>Astro Basics</h1>
-	<p>Welcome to Astro!</p>
-	<h1>{ realisation.title }</h1>
-	<h1 class="text-3xl font-bold underline">
-		Hello world!
-	</h1>
+	<Header />
+	<h1>Mes projets</h1>
 </Layout>

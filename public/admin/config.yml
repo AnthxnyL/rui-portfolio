@@ -9,7 +9,7 @@ media_folder: "src/assets/images" # Emplacement où les fichiers seront stockés
 public_folder: "src/assets/images" # L'attribut src pour les médias téléchargés
 
 collections:
-  - name: "Home"
+  - name: "home"
     label: "Page d'accueil"
     files:
       - file: "src/content/home.md"
@@ -33,19 +33,12 @@ collections:
                 widget : "list"
                 fields :
                   - { label: "Entreprise", name: "company", widget: "string" }
-                  - { label: "Conrat", name: "contract", widget: "string" }
+                  - { label: "Contrat", name: "contract", widget: "string" }
                   - { label: "Date de début", name: "start_date", widget: "datetime" }
                   - { label: "Date de fin", name: "end_date", widget: "datetime" }
                   - { label: "Description", name: "description", widget: "text" }
-          - label : "Links"
-            name : "links"
-            widget : "list"
-            fields :
-              - { label: "Nom", name: "name", widget: "string" }
-              - { label: "URL", name: "url", widget: "string" }
-              - { label: "Type", name: "type", widget: "select", options: [ "Email", "Social", "Phone" ] }
 
-  - name: "Projects"
+  - name: "projects"
     label: "Projets"
     folder: "src/content/projects"
     create: true
@@ -59,3 +52,20 @@ collections:
           label: "Images", name: 'images', widget: "list",
           field: { label: "Image", name: "image", widget: "image" } 
         }
+
+  - name: "config"
+    label: "Configuration"
+    files:
+      - file: "src/content/config.yml"
+        label: "Configuration"
+        name: "config"
+        fields:
+          - { label: "Nom du site", name: "site_name", widget: "string" }
+          - { label: "Logo du site", name: "site_logo", widget: "image" }
+          - label : "Links"
+            name : "links"
+            widget : "list"
+            fields :
+              - { label: "Nom", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Type", name: "type", widget: "select", options: [ "Email", "Social", "Phone" ] }
