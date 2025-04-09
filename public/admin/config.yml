@@ -50,7 +50,10 @@ collections:
       - { label: "Domaine", name: "field", widget: "string" }
       - { 
           label: "Images", name: 'images', widget: "list",
-          field: { label: "Image", name: "image", widget: "image" } 
+          fields: 
+            - { label: "Image desktop", name: "image", widget: "image" }, 
+            - { label: "Image mobile", name: "image", widget: "image" } 
+         
         }
 
   - name: "config"

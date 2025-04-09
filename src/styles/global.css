@@ -13,10 +13,27 @@
     --color-lightgray: #CBCBCB;
     --color-red: #FF0000;
 
-    --font-title: 'Goog Times', sans-serif;
+    --font-title: 'Good Times', sans-serif;
     --font-body: 'Roboto', sans-serif;
 
     --padding-desktop : 80px;
     --padding-mobile : 20px;
     
 }
+
+
+@font-face {
+    font-family: 'Good Times';
+    src: url('/assets/fonts/Good-Times-Rg.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: var(--font-body);
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: var(--font-title);
+}
+

@@ -1,0 +1,27 @@
+---
+import { frontmatter as home } from '../content/home.md';
+
+import hand from '../assets/hand.svg';
+
+---
+
+
+<div class="flex flex-col justify-center items-center gap-40 h-[80vh] lg:px-20 sm:px-5">
+   <div class="flex flex-col items-center justify-center gap-4 uppercase">
+         <div class="flex lg:flex-row sm:flex-col items-center justify-center gap-5">
+            <div>
+               <img src={ hand.src } alt="hand">
+            </div>
+            <h2 class="text-lightgray text-center lg:text-3xl sm:text-2xl">Looking for <span class="lg:whitespace-normal sm:whitespace-pre">an apprenticeship</span></h2>
+         </div>
+         <h1 class="font-title text-gray lg:text-8xl sm:text-4xl">Rui Pisoeiro</h1>
+   </div>
+
+   <div class="w-full sm:text-left">     
+      <div class="flex lg:flex-row sm:flex-col justify-between items-center w-full gap-5 text-black w-full">
+            <h2 class="uppercase font-title 2xl:text-8xl lg:text-6xl sm:text-5xl lg:max-w-150 w-full">{ home.hero_section.title }</h2>
+            <p class="font-extralight lg:max-w-140 w-full lg:text-2xl sm:text-base">{ home.hero_section.text }</p>
+      </div>
+   </div>
+</div>
+
