@@ -52,8 +52,8 @@ collections:
         name: "images"
         widget: "list"
         fields:
-          - { label: "Image desktop", name: "desktop_image", widget: "image" }
-          - { label: "Image mobile", name: "mobile_image", widget: "image" }
+          - {label: "Image desktop", name: "desktop", widget: "image"}
+          - {label: "Image mobile", name: "mobile", widget: "image"}
 
   - name: "config"
     label: "Configuration"
