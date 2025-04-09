@@ -1,3 +1,4 @@
+---
 site_name: Rui's portfolio
 site_logo: src/assets/images/logo-rui.png
 links:
@@ -10,3 +11,5 @@ links:
   - name: Email
     url: anthonylopes037@gmail.com
     type: Email
+---
+

@@ -1,33 +1,131 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { frontmatter as config } from '../content/home.md';
+import { frontmatter as config } from '../content/config.md';
 ---
-
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const burgerBtn = document.getElementById("burgerBtn");
+        const nav = document.getElementById("mobileNav");
+        const links = document.querySelectorAll("nav a");
+        const burgerIcon = document.querySelector(".burger");
+        const closeIcon = document.querySelector(".close");
+        
+        // Set active link based on current pathname
+        links.forEach(link => {
+            if (window.location.pathname === link.getAttribute("href")) {
+                link.classList.add("font-bold");
+            }
+        });
+        
+        // Toggle mobile menu with animation
+        const toggleMenu = (show) => {
+            if (show) {
+                nav.classList.remove("hidden", "slide-out");
+                nav.classList.add("slide-in");
+                closeIcon.classList.remove("hidden");
+                burgerIcon.classList.add("hidden");
+            } else {
+                nav.classList.remove("slide-in");
+                nav.classList.add("slide-out");
+                setTimeout(() => nav.classList.add("hidden"), 300);
+                closeIcon.classList.add("hidden");
+                burgerIcon.classList.remove("hidden");
+            }
+        };
+        
+        // Event listeners
+        burgerBtn.addEventListener("click", () => toggleMenu(nav.classList.contains("hidden")));
+        
+        // Close menu when clicking any nav link
+        links.forEach(link => {
+            link.addEventListener("click", () => toggleMenu(false));
+        });
+    });
+</script>
 
 <Layout>
-    <header class="flex items-center justify-center">
-        <div class="flex flex-col justify-center items-center w-full container pt-10 gap-10">
+    <header class="flex items-center justify-center lg:pt-10 sm:pt-6 lg:px-desktop sm:px-mobile relative">
+        <div class="flex flex-col justify-center items-center w-full lg:gap-10 sm:gap-6">
             <div class="flex flex-row justify-between items-center w-full">
-                <div class="flex items-center justify-between h-8">
-                    <img src="/src/assets/images/caca.jpg" alt="Logo" class="w-auto h-full">
+                <!-- Logo -->
+                <div class="flex items-center h-8">
+                    <img src={config.site_logo} alt="Logo" class="w-auto h-full">
                 </div>
-                <nav>
+
+                <!-- Burger button -->
+                <button id="burgerBtn" class="lg:hidden sm:flex items-center justify-center" aria-label="Toggle menu">
+                    <svg class="burger" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                        <path d="M2.4 5.3a.8.8 0 0 0 0 1.6h19.2a.8.8 0 0 0 0-1.6H2.4Zm0 6.4a.8.8 0 0 1 0 1.6h19.2a.8.8 0 0 0 0-1.6H2.4Zm0 6.4a.8.8 0 0 0 0 1.6h19.2a.8.8 0 0 0 0-1.6H2.4Z" fill="black"/>
+                    </svg>   
+                    <svg class="close hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                        <path d="M20.57 5.07a.75.75 0 0 0 0-1.06L12 11.37 4.57 3.94a.75.75 0 1 0-1.06 1.06L10.87 12.5 3.43 19.93a.75.75 0 1 0 1.06 1.06L12 13.63l7.43 7.43a.75.75 0 1 0 1.06-1.06L13.13 12.5l7.43-7.43z" fill="black"/>
+                    </svg>           
+                </button>
+
+                <!-- Desktop navigation -->
+                <nav class="text-darkgray sm:hidden lg:flex">
                     <ul class="flex space-x-4">
-                        <li><a href="/" class="hover:text-gray-400">Home</a></li>
-                        <li><a href="/about" class="hover:text-gray-400">About</a></li>
-                        <li><a href="/contact" class="hover:text-gray-400">Contact</a></li>
+                        <li class="link-animate"><a href="/">Home</a></li>
+                        <li class="link-animate"><a href="#projects">Projects</a></li>
+                        <li class="link-animate"><a href={config.links[0].url}>LinkedIn</a></li>
+                        <li class="link-animate"><a href={config.links[2].url}>Email</a></li>
                     </ul>
                 </nav>
             </div>
-            <hr class="border-b-1 border-gray w-full" />
+
+            <hr class="border-b-1 border-lightgray w-full" />
         </div>
 
+        <!-- Mobile navigation -->
+        <nav id="mobileNav" class="text-darkgray hidden absolute top-20 left-0 w-full bg-white z-10 border-b-1 border-lightgray">
+            <ul class="flex flex-col items-center space-y-4 py-10">
+                <li class="link-animate"><a href="/">Home</a></li>
+                <li class="link-animate"><a href="#projects">Projects</a></li>
+                <li class="link-animate"><a href={config.links[0].url}>LinkedIn</a></li>
+                <li class="link-animate"><a href={config.links[2].url}>Email</a></li>
+            </ul>
+        </nav>
     </header>
 </Layout>
 
 <style>
     .container { 
-        padding-left : 80px;
-        padding-right : 80px;
+        padding-left: 80px;
+        padding-right: 80px;
     }
+
+    @media screen and (max-width: 768px) {
+        .container {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+
+    .link-animate::after {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 0;
+        background: #4F4F4F;
+        position: relative;
+        top: 5px;
+        transition: width 0.3s ease;
+    }
+
+    .link-animate:hover::after {
+        width: 100%;
+    }
+
+    @keyframes slideIn {
+        from { transform: translateY(-100%); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideOut {
+        from { transform: translateY(0); opacity: 1; }
+        to { transform: translateY(-100%); opacity: 0; }
+    }
+
+    .slide-in { animation: slideIn 0.3s ease-out forwards; }
+    .slide-out { animation: slideOut 0.3s ease-out forwards; }
 </style>
