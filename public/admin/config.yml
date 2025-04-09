@@ -48,13 +48,12 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Date", name: "date", widget: "string" }
       - { label: "Domaine", name: "field", widget: "string" }
-      - { 
-          label: "Images", name: 'images', widget: "list",
-          fields: 
-            - { label: "Image desktop", name: "image", widget: "image" }, 
-            - { label: "Image mobile", name: "image", widget: "image" } 
-         
-        }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        fields:
+          - { label: "Image desktop", name: "desktop_image", widget: "image" }
+          - { label: "Image mobile", name: "mobile_image", widget: "image" }
 
   - name: "config"
     label: "Configuration"
