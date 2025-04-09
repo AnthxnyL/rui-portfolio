@@ -1,17 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { frontmatter as config } from '../content/home.md';
 ---
 
 
 <Layout>
-    <header class="bg-gray-800 text-white p-4">
-        <h1 class="text-2xl font-bold">My Website</h1>
-        <nav>
-            <ul class="flex space-x-4">
-                <li><a href="/" class="hover:text-gray-400">Home</a></li>
-                <li><a href="/about" class="hover:text-gray-400">About</a></li>
-                <li><a href="/contact" class="hover:text-gray-400">Contact</a></li>
-            </ul>
-        </nav>
+    <header class="flex items-center justify-center">
+        <div class="flex flex-col justify-center items-center w-full container pt-10 gap-10">
+            <div class="flex flex-row justify-between items-center w-full">
+                <div class="flex items-center justify-between h-8">
+                    <img src="/src/assets/images/caca.jpg" alt="Logo" class="w-auto h-full">
+                </div>
+                <nav>
+                    <ul class="flex space-x-4">
+                        <li><a href="/" class="hover:text-gray-400">Home</a></li>
+                        <li><a href="/about" class="hover:text-gray-400">About</a></li>
+                        <li><a href="/contact" class="hover:text-gray-400">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <hr class="border-b-1 border-gray w-full" />
+        </div>
+
     </header>
 </Layout>
+
+<style>
+    .container { 
+        padding-left : 80px;
+        padding-right : 80px;
+    }
+</style>

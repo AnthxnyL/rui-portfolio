@@ -56,7 +56,7 @@ collections:
   - name: "config"
     label: "Configuration"
     files:
-      - file: "src/content/config.yml"
+      - file: "src/content/config.md"
         label: "Configuration"
         name: "config"
         fields:

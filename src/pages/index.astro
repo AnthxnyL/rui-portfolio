@@ -1,13 +1,27 @@
 ---
 import { frontmatter as home } from '../content/home.md';
+import { getCollection } from "astro:content";
 import "../styles/global.css";
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import "../styles/global.css";
 
 
+const projects = await getCollection("projects");
+console.log(projects[0].data.title);
 ---
 
 <Layout>
 	<Header />
 	<h1>Mes projets</h1>
+	<p>Voici quelques-uns de mes projets récents :</p>
+	{ projects.filter((project: any) => project.data).map((project: any) => (
+		<div key={project.id}>
+			<h2>{project.data.title}</h2>
+			<p>{project.data.description}</p>
+			<img src={project.data.images[0]}>{project.data.images[0]}</img>
+			<a href={`/projects/${project.id}`}>Voir le projet</a>
+		</div>
+	)) }
 </Layout>
+
