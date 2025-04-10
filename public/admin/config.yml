@@ -48,7 +48,7 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Date", name: "date", widget: "string" }
       - { label: "Domaine", name: "field", widget: "string" }
-      - label: "Cover Homepage"
+      - label: "Images des projets sur la Homepage"
         name: "images"
         widget: "list"
         fields:
