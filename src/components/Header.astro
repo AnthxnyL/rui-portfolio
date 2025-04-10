@@ -61,14 +61,14 @@ import { frontmatter as config } from '../content/config.md';
                         <path d="M20.57 5.07a.75.75 0 0 0 0-1.06L12 11.37 4.57 3.94a.75.75 0 1 0-1.06 1.06L10.87 12.5 3.43 19.93a.75.75 0 1 0 1.06 1.06L12 13.63l7.43 7.43a.75.75 0 1 0 1.06-1.06L13.13 12.5l7.43-7.43z" fill="black"/>
                     </svg>           
                 </button>
+            
 
-                <!-- Desktop navigation -->
                 <nav class="text-darkgray sm:hidden lg:flex">
                     <ul class="flex space-x-4">
                         <li class="link-animate"><a href="/">Home</a></li>
                         <li class="link-animate"><a href="#projects">Projects</a></li>
-                        <li class="link-animate"><a href={config.links[0].url}>LinkedIn</a></li>
-                        <li class="link-animate"><a href={config.links[2].url}>Email</a></li>
+                        <li class="link-animate"><a href={ config.links[0].url }>LinkedIn</a></li>
+                        <li class="link-animate"><a href={ `mailto:${ config.links[1].url }`} >Email</a></li>
                     </ul>
                 </nav>
             </div>

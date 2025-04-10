@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-
 const projects = await getCollection("projects");
 ---
 
@@ -8,7 +7,7 @@ const projects = await getCollection("projects");
 <div class="flex flex-col items-center justify-center">
 
     {projects.filter((project: any) => project.data).map((project: any) => (
-        <a href="" class="w-full">
+        <a href={`/project/${project.slug}`} class="w-full">
             <div class="w-full lg:h-[80vh] sm:h-[90vh]">
                 <!-- Image desktop toujours présente, mais cachée sur mobile si une image mobile existe -->
                 <img 
