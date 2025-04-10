@@ -9,16 +9,16 @@ description: >-
 date: " 2024"
 field: Ui design / Brand strategy
 images_homepage:
-  - desktop: src/assets/images/rui-1.webp
-    mobile: src/assets/images/rui-1-mobile.webp
+  - desktop: /public/images/rui-1.webp
+    mobile: /public/images/rui-1-mobile.webp
 images_project:
-  - images: src/assets/images/rectangle-11.webp
-  - images: src/assets/images/rectangle-12.webp
-  - images: src/assets/images/rectangle-12-1.webp
-  - images: src/assets/images/rectangle-13.webp
-  - images: src/assets/images/rectangle-14.webp
-  - images: src/assets/images/rectangle-15.webp
-  - images: src/assets/images/rectangle-16.webp
-  - images: src/assets/images/rectangle-17.webp
-  - images: src/assets/images/rectangle-18.webp
+  - images: /public/images/rectangle-11.webp
+  - images: /public/images/rectangle-12.webp
+  - images: /public/images/rectangle-12-1.webp
+  - images: /public/images/rectangle-13.webp
+  - images: /public/images/rectangle-14.webp
+  - images: /public/images/rectangle-15.webp
+  - images: /public/images/rectangle-16.webp
+  - images: /public/images/rectangle-17.webp
+  - images: /public/images/rectangle-18.webp
 ---
