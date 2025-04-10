@@ -1,6 +1,6 @@
 ---
 site_name: Rui's portfolio
-site_logo: src/assets/images/logo-rui.webp
+site_logo: /src/assets/images/logo-rui.webp
 links:
   - name: LinkedIn
     url: https://www.linkedin.com/in/rui-pisoeiro-27a415231/
