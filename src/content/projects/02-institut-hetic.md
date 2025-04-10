@@ -11,4 +11,14 @@ field: Ui design / Brand strategy
 images:
   - src/assets/images/chienva.jpg
   - src/assets/images/caca.jpg
+images_homepage:
+  - desktop: src/assets/images/institut-hetic-desktop.webp
+    mobile: src/assets/images/hetic-mobile.webp
+images_project:
+  - images: src/assets/images/hetic-1.webp
+  - images: src/assets/images/hetic-2.webp
+  - images: src/assets/images/hetic-3.webp
+  - images: src/assets/images/hetic-4.webp
+  - images: src/assets/images/hetic-5.webp
+  - images: src/assets/images/hetic-6.webp
 ---
