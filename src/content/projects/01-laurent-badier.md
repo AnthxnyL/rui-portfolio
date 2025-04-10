@@ -11,4 +11,9 @@ field: Ui design / Brand strategy
 images:
   - desktop: src/assets/images/rui-1.png
     mobile: src/assets/images/rui-1-mobile.png
+images_homepage:
+  - desktop: src/assets/images/rui-1.png
+    mobile: src/assets/images/rui-1-mobile.png
+images_project:
+  - images: src/assets/images/rectangle-11.png
 ---
