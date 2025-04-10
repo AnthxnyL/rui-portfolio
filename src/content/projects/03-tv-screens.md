@@ -9,11 +9,11 @@ description: >-
 date: " 2024"
 field: Ui design
 images_homepage:
-  - desktop: src/assets/images/mario-desktop.webp
+  - desktop: /public/images/mario-desktop.webp
     mobile: src/assets/images/mario-mobile.webp
 images_project:
-  - images: src/assets/images/mario-1.webp
-  - images: src/assets/images/mario-2.webp
-  - images: src/assets/images/mario-3.webp
-  - images: src/assets/images/mario-4.webp
+  - images: /public/images/mario-1.webp
+  - images: /public/images/mario-2.webp
+  - images: /public/images/mario-3.webp
+  - images: /public/images/mario-4.webp
 ---
