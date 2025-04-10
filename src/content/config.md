@@ -1,15 +1,14 @@
 ---
 site_name: Rui's portfolio
-site_logo: src/assets/images/logo-rui.png
+site_logo: src/assets/images/logo-rui.webp
 links:
   - name: LinkedIn
     url: https://www.linkedin.com/in/rui-pisoeiro-27a415231/
     type: Social
   - name: Email
-    url: anthonylopes037@gmail.com
+    url: Rui_Pisoeiro@hotmail.com
     type: Email
   - name: Call me
-    url: "0782414441"
+    url: "0663439525"
     type: Phone
 ---
-
