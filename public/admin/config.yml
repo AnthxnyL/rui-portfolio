@@ -5,8 +5,8 @@ backend:
 preview_styles:
   - "/src/styles/global.css"
 
-media_folder: "/src/assets/images" # Emplacement où les fichiers seront stockés dans le dépôt
-public_folder: "/src/assets/images" # L'attribut src pour les médias téléchargés
+media_folder: "src/public/images" # Emplacement où les fichiers seront stockés dans le dépôt
+public_folder: "src/public/images" # L'attribut src pour les médias téléchargés
 
 collections:
   - name: "home"
