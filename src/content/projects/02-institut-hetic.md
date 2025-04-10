@@ -8,9 +8,6 @@ description: >-
   The project was divided into several stages, from benchmarking to designing mockups, including wireframes and the UX research phase.
 date: " 2024"
 field: Ui design / Brand strategy
-images:
-  - src/assets/images/chienva.jpg
-  - src/assets/images/caca.jpg
 images_homepage:
   - desktop: src/assets/images/institut-hetic-desktop.webp
     mobile: src/assets/images/hetic-mobile.webp

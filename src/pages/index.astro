@@ -5,6 +5,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Project  from '../components/Project.astro';
+import About from '../components/About.astro';
 import "../styles/global.css";
 
 
@@ -14,14 +15,7 @@ import "../styles/global.css";
 	<Header />
 	<Hero />
 	<Project />
+	<About />
 	
-	<!-- { projects.filter((project: any) => project.data).map((project: any) => (
-		<div key={project.id}>
-			<h2>{project.data.title}</h2>
-			<p>{project.data.description}</p>
-			<img src={project.data.images[0]}>{project.data.images[0]}</img>
-			<a href={`/projects/${project.id}`}>Voir le projet</a>
-		</div>
-	)) } -->
 </Layout>
 

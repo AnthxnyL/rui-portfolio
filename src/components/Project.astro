@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 
 const projects = await getCollection("projects");
-console.log(projects[0].data.images);
 ---
 
 
@@ -10,25 +9,24 @@ console.log(projects[0].data.images);
 
     {projects.filter((project: any) => project.data).map((project: any) => (
         <a href="" class="w-full">
-            <div class="w-full h-[80vh]">
-
+            <div class="w-full lg:h-[80vh] sm:h-[90vh]">
                 <!-- Image desktop toujours présente, mais cachée sur mobile si une image mobile existe -->
                 <img 
-                    src={ project.data.images[0].desktop } 
+                    src={ project.data.images_homepage[0]?.desktop } 
                     alt={project.data.title} 
-                    class={`w-full h-full object-cover ${project.data.images[0].mobile ? 'hidden md:block' : 'block'}`} 
+                    class={`w-full h-full object-cover ${project.data.images_homepage[0]?.mobile ? 'hidden lg:block' : 'block'}`} 
                 />
                 
                 <!-- Image mobile affichée uniquement si elle existe -->
-                {project.data.images[0].mobile && 
+                {project.data.images_homepage[0]?.mobile && 
                     <img 
-                        src={project.data.images[0].mobile} 
+                        src={project.data.images_homepage[0]?.mobile} 
                         alt={project.data.title} 
-                        class="w-full h-full object-cover block md:hidden" 
+                        class="w-full h-full object-cover block lg:hidden" 
                     />
                 }
             </div>
-            <div class=" flex justify-center bg-black items-center w-full p-20">
+            <div class=" flex justify-center bg-black items-center w-full lg:p-20 sm:py-14 sm:px-5">
                 <h3 class="lg:text-3xl sm:text-xl uppercase text-white">{ project.data.title }</h3>
             </div>
         </a>

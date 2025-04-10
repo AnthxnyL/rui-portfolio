@@ -8,9 +8,6 @@ description: >-
   Combining marketing (positioning, pricing, communication) and design (UX research, wireframing, prototyping), we aimed to align the brand’s identity with its values while enhancing the user experience.
 date: " 2024"
 field: Ui design / Brand strategy
-images:
-  - desktop: src/assets/images/rui-1.png
-    mobile: src/assets/images/rui-1-mobile.png
 images_homepage:
   - desktop: src/assets/images/rui-1.webp
     mobile: src/assets/images/rui-1-mobile.webp

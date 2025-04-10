@@ -36,8 +36,12 @@ collections:
                   - { label: "Contrat", name: "contract", widget: "string" }
                   - { label: "Date de début", name: "start_date", widget: "datetime" }
                   - { label: "Date de fin", name: "end_date", widget: "datetime" }
-                  - { label: "Description", name: "description", widget: "text" }
-
+                  - label: "Liste de tâches"
+                    name: "tasks"
+                    widget: "list"
+                    fields:
+                      - { label: "Nom de la tâche", name: "task_name", widget: "string" }
+                      
   - name: "projects"
     label: "Projets"
     folder: "src/content/projects"
