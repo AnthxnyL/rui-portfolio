@@ -9,12 +9,12 @@ description: >-
 date: " 2022"
 field: Ui design
 images_homepage:
-  - desktop: src/assets/images/burger-desktop.webp
-    mobile: src/assets/images/burger-mobile.webp
+  - desktop: /public/images/burger-desktop.webp
+    mobile: /public/images/burger-mobile.webp
 images_project:
-  - images: src/assets/images/burger-1.webp
-  - images: src/assets/images/burger-2.webp
-  - images: src/assets/images/burger-3.webp
-  - images: src/assets/images/burger-4.webp
-  - images: src/assets/images/burger-5.webp
+  - images: /public/images/burger-1.webp
+  - images: /public/images/burger-2.webp
+  - images: /public/images/burger-3.webp
+  - images: /public/images/burger-4.webp
+  - images: /public/images/burger-5.webp
 ---
