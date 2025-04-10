@@ -49,13 +49,13 @@ collections:
       - { label: "Date", name: "date", widget: "string" }
       - { label: "Domaine", name: "field", widget: "string" }
       - label: "Images des projets sur la Homepage"
-        name: "images"
+        name: "images_homepage"
         widget: "list"
         fields:
           - {label: "Image desktop", name: "desktop", widget: "image"}
           - {label: "Image mobile", name: "mobile", widget: "image"}
       - label: "Images de présentation"
-        name: "images"
+        name: "images_project"
         widget: "list"
         fields:
           - {label: "Image", name: "images", widget: "image"}
