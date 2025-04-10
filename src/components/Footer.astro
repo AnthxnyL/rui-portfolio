@@ -1,0 +1,50 @@
+---
+import { frontmatter as config } from '../content/config.md';
+import hand from '../assets/hand.svg';
+import call from '../assets/call.svg';
+import email from '../assets/email.svg';
+import linkedin from '../assets/linkedin.svg';
+
+const links = config.links;
+---
+
+<footer class="flex flex-col justify-center items-center w-full bg-background lg:px-20 sm:px-5 lg:gap-30 sm:gap-12">
+
+    <div class="flex flex-col items-center justify-center gap-12 lg:pt-30 sm:pt-20 border-t-1 border-white w-full">
+
+        <div class="flex flex-col items-center justify-center gap-4 uppercase text-center">
+            <div class="flex lg:flex-row sm:flex-col items-center justify-center gap-5">
+            <div>
+                <img src={ hand.src } alt="hand">
+            </div>
+            <h2 class="text-lightgray text-center lg:text-3xl sm:text-2xl">Looking for <span class="lg:whitespace-normal sm:whitespace-pre">an apprenticeship</span></h2>
+            </div>
+            <h2 class="font-title text-white lg:text-8xl sm:text-4xl ">Contact me</h2>
+        </div>
+
+        <div class="flex lg:flex-row sm:flex-col items-center justify-center lg:gap-12 sm:gap-6">
+            {links.map((link: any) => 
+                link.type === 'Email' ? (
+                    <a href={`mailto:${link.url}`} class="flex items-center justify-center gap-3">
+                        <img src={email.src} alt="Email Icon">
+                        <p class="font-title uppercase lg:text-2xl sm:text-xl text-gray">{link.name}</p>
+                    </a>
+                ) : link.type === 'Phone' ? (
+                    <a href={`tel:${link.url}`} class="flex items-center justify-center gap-3">
+                        <img src={call.src} alt="Phone Icon">
+                        <p class="font-title uppercase lg:text-2xl sm:text-xl text-gray">{link.name}</p>
+                    </a>
+                ) : link.type === 'Social' ? (
+                    <a href={link.url} class="flex items-center justify-center gap-3" target="_blank" rel="noopener noreferrer">
+                        <img src={linkedin.src} alt="LinkedIn Icon">
+                        <p class="font-title uppercase lg:text-2xl sm:text-xl text-gray">{link.name}</p>
+                    </a>
+                ) : null
+            )}
+        </div>
+    </div>
+
+    
+
+  <p class="text-white font-title lg:text-xl sm:text-xs uppercase pb-6 text-center">© 2025 RUI PISOEIRO. ALL RIGHTS REserved</p>
+</footer>
