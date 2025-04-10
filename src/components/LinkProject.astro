@@ -1,0 +1,36 @@
+---
+
+import arrow from '../assets/arrow.svg';
+export interface Props {
+    slug: string;
+    prevProject?: any | null;
+    nextProject?: any | null;
+}
+
+const { slug, prevProject, nextProject } = Astro.props;
+---
+
+
+<div class="flex items-center lg:justify-between sm:justify-center w-full lg:px-20 sm:px-10 lg:flex-row sm:flex-col gap-6">
+    <div class="flex items-center justify-center">
+        {prevProject && (
+            <a href={`/project/${prevProject.slug}`} class="flex items-center justify-center gap-2">
+                <div class="flex items-center justify-center h-[24px] w-[24px]">
+                    <img src={ arrow.src } alt="arrow icon" class="transform rotate-260 w-full h-full">
+                </div>
+                <p class="font-title uppercase lg:text-base sm:text-xs">Previous project</p>
+            </a>
+        )}
+    </div>
+        
+        <div class="flex items-center justify-center">
+        {nextProject && (
+            <a href={`/project/${nextProject.slug}`} class="flex items-center justify-center gap-2">
+                <p class="font-title uppercase lg:text-base sm:text-xs">NEXT project</p>
+                <div class="flex items-center justify-center h-[24px] w-[24px]">
+                    <img src={ arrow.src } alt="arrow icon" class="w-full h-full">
+                </div>
+            </a>
+        )}
+    </div>
+</div>

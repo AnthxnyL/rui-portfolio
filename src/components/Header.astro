@@ -1,46 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { frontmatter as config } from '../content/config.md';
+const currentPath = Astro.url.pathname;
 ---
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const burgerBtn = document.getElementById("burgerBtn");
-        const nav = document.getElementById("mobileNav");
-        const links = document.querySelectorAll("nav a");
-        const burgerIcon = document.querySelector(".burger");
-        const closeIcon = document.querySelector(".close");
-        
-        // Set active link based on current pathname
-        links.forEach(link => {
-            if (window.location.pathname === link.getAttribute("href")) {
-                link.classList.add("font-bold");
-            }
-        });
-        
-        // Toggle mobile menu with animation
-        const toggleMenu = (show) => {
-            if (show) {
-                nav.classList.remove("hidden", "slide-out");
-                nav.classList.add("slide-in");
-                closeIcon.classList.remove("hidden");
-                burgerIcon.classList.add("hidden");
-            } else {
-                nav.classList.remove("slide-in");
-                nav.classList.add("slide-out");
-                setTimeout(() => nav.classList.add("hidden"), 300);
-                closeIcon.classList.add("hidden");
-                burgerIcon.classList.remove("hidden");
-            }
-        };
-        
-        // Event listeners
-        burgerBtn.addEventListener("click", () => toggleMenu(nav.classList.contains("hidden")));
-        
-        // Close menu when clicking any nav link
-        links.forEach(link => {
-            link.addEventListener("click", () => toggleMenu(false));
-        });
+   document.addEventListener("DOMContentLoaded", () => {
+    const burgerBtn = document.getElementById("burgerBtn");
+    const nav = document.getElementById("mobileNav");
+    const links = document.querySelectorAll("nav a");
+    const burgerIcon = document.querySelector(".burger");
+    const closeIcon = document.querySelector(".close");
+
+    const toggleMenu = (show) => {
+        if (show) {
+            nav.classList.remove("hidden", "slide-out");
+            nav.classList.add("slide-in");
+            closeIcon.classList.remove("hidden");
+            burgerIcon.classList.add("hidden");
+        } else {
+            nav.classList.remove("slide-in");
+            nav.classList.add("slide-out");
+            setTimeout(() => nav.classList.add("hidden"), 300);
+            closeIcon.classList.add("hidden");
+            burgerIcon.classList.remove("hidden");
+        }
+    };
+
+    // Marque le lien actif
+    links.forEach(link => {
+        if (window.location.pathname === link.getAttribute("href")) {
+            link.classList.add("font-bold");
+        }
     });
+
+    burgerBtn.addEventListener("click", () => toggleMenu(nav.classList.contains("hidden")));
+
+    links.forEach(link => {
+        link.addEventListener("click", () => toggleMenu(false));
+    });
+
+    // 💡 Nouvelle logique ici : fermer le menu mobile si on repasse en desktop
+    window.addEventListener("resize", () => {
+        const isDesktop = window.innerWidth >= 1024; // lg breakpoint
+        if (isDesktop && !nav.classList.contains("hidden")) {
+            toggleMenu(false); // Ferme le menu mobile si on passe en desktop
+        }
+    });
+});
 </script>
 
 <Layout>
@@ -65,8 +71,8 @@ import { frontmatter as config } from '../content/config.md';
 
                 <nav class="text-darkgray sm:hidden lg:flex">
                     <ul class="flex space-x-4">
-                        <li class="link-animate"><a href="/">Home</a></li>
-                        <li class="link-animate"><a href="#projects">Projects</a></li>
+                        <li class="link-animate"><a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a></li>
+                        <li class="link-animate"><a href="#projects" class={`nav-link ${currentPath.startsWith('/project') ? 'active' : ''}`}>Projects</a></li>
                         <li class="link-animate"><a href={ config.links[0].url }>LinkedIn</a></li>
                         <li class="link-animate"><a href={ `mailto:${ config.links[1].url }`} >Email</a></li>
                     </ul>
@@ -79,8 +85,8 @@ import { frontmatter as config } from '../content/config.md';
         <!-- Mobile navigation -->
         <nav id="mobileNav" class="text-darkgray hidden absolute top-20 left-0 w-full bg-white z-10 border-b-1 border-lightgray">
             <ul class="flex flex-col items-center space-y-4 py-10">
-                <li class="link-animate"><a href="/">Home</a></li>
-                <li class="link-animate"><a href="#projects">Projects</a></li>
+                <li class="link-animate"><a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a></li>
+                <li class="link-animate"><a href="#projects" class={`nav-link ${currentPath.startsWith('/project') ? 'active' : ''}`}>Projects</a></li>
                 <li class="link-animate"><a href={config.links[0].url}>LinkedIn</a></li>
                 <li class="link-animate"><a href={config.links[2].url}>Email</a></li>
             </ul>
@@ -89,6 +95,11 @@ import { frontmatter as config } from '../content/config.md';
 </Layout>
 
 <style>
+
+    .active{
+        font-weight: bold;
+    }
+
     .container { 
         padding-left: 80px;
         padding-right: 80px;

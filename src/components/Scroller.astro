@@ -1,0 +1,51 @@
+---
+export interface Props {
+    images: string[]; // Liste des URLs des images
+}
+
+const { images } = Astro.props;
+---
+
+<div class="flex items-center justify-center pt-12 lg:pl-20 sm:pl-5">
+  <div id="scrollContainer" class="flex gap-6 w-full lg:h-[50vh] sm:h-[30vh] overflow-x-auto scrollbar-hide lg:pr-20 sm:pr-5">
+    {images.map((image, index) => (
+      <div class="flex-shrink-0 lg:w-[40vw] sm:w-xs h-full " key={index}>
+        <img src={image} alt={`Image ${index + 1}`} class="w-full h-full object-fit rounded-lg" />
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+
+<script is:inline>
+    const scrollContainer = document.getElementById('scrollContainer');
+  
+    if (scrollContainer) {
+      scrollContainer.addEventListener('wheel', (e) => {
+        const atStart = scrollContainer.scrollLeft === 0;
+        const atEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth;
+  
+        if (!atStart && !atEnd) {
+          e.preventDefault();
+          scrollContainer.scrollLeft += e.deltaY;
+        } else if (!atEnd && e.deltaY > 0) {
+          e.preventDefault();
+          scrollContainer.scrollLeft += e.deltaY;
+        } else if (!atStart && e.deltaY < 0) {
+          e.preventDefault();
+          scrollContainer.scrollLeft += e.deltaY;
+        }
+      }, { passive: false });
+    }
+  </script>
+  

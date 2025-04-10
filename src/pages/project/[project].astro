@@ -1,38 +1,54 @@
 ---
 import { getCollection, getEntryBySlug } from "astro:content";
 import "../../styles/global.css";
+import Scroller from '../../components/Scroller.astro';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
+import TextProject from '../../components/TextProject.astro';
+import LinkProject from "../../components/LinkProject.astro";
 
 export async function getStaticPaths() {
     const projects = await getCollection('projects');
-    return projects.map((project:any) => ({
-        params: { project: project.slug },
-        props: { project },
-    }));
+
+    const sortedProjects = projects.sort((a, b) => 
+        new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+    );
+
+    return sortedProjects.map((project, index) => {
+        // Trouver les projets précédent et suivant
+        const nextProject = index < sortedProjects.length - 1 ? sortedProjects[index + 1] : null;
+        const prevProject = index > 0 ? sortedProjects[index - 1] : null;
+        
+        return {
+            params: { project: project.slug },  // Utilisez "project" comme paramètre
+            props: { 
+                project,
+                prevProject,
+                nextProject
+            }
+        };
+    });
 }
 
 const { project } = Astro.params;
 const post = await getEntryBySlug('projects', project);
+const { prevProject, nextProject } = Astro.props;
 
 
 if (!post) {
     throw new Error(`Project not found: ${project}`);
 }
-console.log(post);
 ---
 
 <Layout>
     <Header />
-    <div class="project-page">
-        <h1>{post.data.title}</h1>
-        <p>{post.data.description}</p>
-        <div class="images">
-            {post.data.images_project.map((image:any) => (
-                <img src={image.images} alt={post.data.title} />
-            ))}
-        </div>
-    </div>
-    <img src="/src/assets/images/burger-1.webp" alt="">
+    <Scroller images={post.data.images_project.map((image: any) => image.images)} />
+    <TextProject title={post.data.title} description={post.data.description} date={post.data.date} field={ post.data.field } />
+
+    <LinkProject 
+    slug={post.slug} 
+    prevProject={prevProject ? { slug: prevProject.slug, title: prevProject.data.title } : null}
+    nextProject={nextProject ? { slug: nextProject.slug, title: nextProject.data.title } : null}
+    />
 </Layout>
 

@@ -4,7 +4,7 @@ const projects = await getCollection("projects");
 ---
 
 
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center" id="projects">
 
     {projects.filter((project: any) => project.data).map((project: any) => (
         <a href={`/project/${project.slug}`} class="w-full">
