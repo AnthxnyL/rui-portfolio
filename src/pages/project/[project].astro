@@ -40,7 +40,7 @@ if (!post) {
 }
 ---
 
-<Layout>
+<Layout class="flex flex-col items-center justify-center w-full h-full">
     <Header />
     <Scroller images={post.data.images_project.map((image: any) => image.images)} />
     <TextProject title={post.data.title} description={post.data.description} date={post.data.date} field={ post.data.field } />

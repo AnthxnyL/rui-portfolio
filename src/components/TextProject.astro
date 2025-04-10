@@ -6,6 +6,9 @@ export interface Props {
     field: string;
 }
 const { title, description, date, field } = Astro.props;
+
+// Transformer les sauts de ligne simples en balises <br>
+const formattedDescription = description.replace(/\n/g, '<br />');
 ---
 
 <div class="flex items-center justify-center py-10">
@@ -14,14 +17,13 @@ const { title, description, date, field } = Astro.props;
             <h2 class="uppercase lg:text-4xl sm:text-2xl">{ title }</h2>
             <p class="font-extralight lg:text-base sm:text-sm uppercase font-title">{ date } - { field }</p>
         </div>
-        <p class="lg:text-xl sm:text-base font-extralight max-w-xl description">
-           {description}
+        <p class="lg:text-xl sm:text-base font-extralight max-w-xl description" set:html={formattedDescription}>
         </p>
     </div>
 </div>
 
 <style>
     .description {
-      white-space: pre-wrap; /* Respecte les sauts de ligne et les espaces */
+        white-space: pre-line; /* Respecte les sauts de ligne simples */
     }
 </style>
