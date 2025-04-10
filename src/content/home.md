@@ -5,7 +5,7 @@ hero_section:
     expand my skills and craft impactful digital experiences.
 about_section:
   title: ABOUT
-  about_image: /public/images/pix-rui.webp
+  about_image: /images/pix-rui.webp
   experiences:
     - company: Synerg’hetic
       contract: Junior Entreprise

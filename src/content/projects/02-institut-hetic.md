@@ -9,13 +9,13 @@ description: >-
 date: " 2024"
 field: Ui design / Brand strategy
 images_homepage:
-  - desktop: /public/images/institut-hetic-desktop.webp
-    mobile: /public/images/hetic-mobile.webp
+  - desktop: /images/institut-hetic-desktop.webp
+    mobile: /images/hetic-mobile.webp
 images_project:
-  - images: /public/images/hetic-1.webp
-  - images: /public/images/hetic-4.webp
-  - images: /public/images/hetic-5.webp
-  - images: /public/images/hetic-6.webp
-  - images: /public/images/hetic-3.webp
-  - images: /public/images/hetic-2.webp
+  - images: /images/hetic-1.webp
+  - images: /images/hetic-4.webp
+  - images: /images/hetic-5.webp
+  - images: /images/hetic-6.webp
+  - images: /images/hetic-3.webp
+  - images: /images/hetic-2.webp
 ---
