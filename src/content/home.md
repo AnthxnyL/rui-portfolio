@@ -5,7 +5,7 @@ hero_section:
     expand my skills and craft impactful digital experiences.
 about_section:
   title: ABOUT
-  about_image: src/assets/images/choqué.webp
+  about_image: src/assets/images/pix-rui.webp
   experiences:
     - company: Synerg’hetic
       contract: Junior Entreprise
@@ -17,6 +17,13 @@ about_section:
         - Creation of wireframes for the entire site
         - Update of brand book
         - Creation of mock-ups 
+      tasks:
+        - task_name: Complete rethinking of the website structure (short & long term)
+        - task_name: Competitor analysis & benchmark to understand customer needs
+        - task_name: UX workshops (Persona / Concentric Circle)
+        - task_name: Creation of wireframes for the entire site
+        - task_name: Update of brand book
+        - task_name: "Creation of mock-ups "
     - company: VIANEOS
       contract: Internship
       start_date: 2024-05-07T19:18:00.000Z
@@ -26,6 +33,12 @@ about_section:
         - User testing (A/B Testings / Interviews)
         - UI UX workshops (Persona / Features / Tables etc...)
         - Creation of mock-ups for a SaaS
+      tasks:
+        - task_name: Creation of an atomic design KIT wireframe
+        - task_name: User testing (A/B Testings / Interviews)
+        - task_name: Creation of User Flow and User Journey
+        - task_name: UI UX workshops (Persona / Features / Tables etc...)
+        - task_name: Creation of mock-ups for a SaaS
     - company: Asn
       contract: Internship
       end_date: 2023-08-07T19:20:00.000Z
@@ -34,6 +47,11 @@ about_section:
         - Creation of a brand book
         - User testing (A/B Testing / Interviews)
         - Creation of mock-ups for a SaaS 
+      tasks:
+        - task_name: Creation of an atomic design KIT wireframe
+        - task_name: Creation of a brand book
+        - task_name: User testing (A/B Testing / Interviews)
+        - task_name: "Creation of mock-ups for a SaaS "
 links:
   - name: LinkedIn
     url: https://www.linkedin.com/in/rui-pisoeiro-27a415231/
