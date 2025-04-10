@@ -11,13 +11,27 @@ console.log(projects[0].data.images);
     {projects.filter((project: any) => project.data).map((project: any) => (
         <a href="" class="w-full">
             <div class="w-full h-[80vh]">
-                <img src={ project.data.images[0] } alt={project.data.title} class="w-full h-full object-cover" />
+
+                <!-- Image desktop toujours présente, mais cachée sur mobile si une image mobile existe -->
+                <img 
+                    src={ project.data.images[0].desktop } 
+                    alt={project.data.title} 
+                    class={`w-full h-full object-cover ${project.data.images[0].mobile ? 'hidden md:block' : 'block'}`} 
+                />
+                
+                <!-- Image mobile affichée uniquement si elle existe -->
+                {project.data.images[0].mobile && 
+                    <img 
+                        src={project.data.images[0].mobile} 
+                        alt={project.data.title} 
+                        class="w-full h-full object-cover block md:hidden" 
+                    />
+                }
             </div>
             <div class=" flex justify-center bg-black items-center w-full p-20">
                 <h3 class="lg:text-3xl sm:text-xl uppercase text-white">{ project.data.title }</h3>
             </div>
         </a>
-
     ))}
 
 </div>
