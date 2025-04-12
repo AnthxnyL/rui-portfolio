@@ -1,5 +1,7 @@
 ---
-title: 02. INSTITUT HETIC
+title: "02.
+  
+  INSTITUT HETIC"
 description: >-
   This project, presented during a hackathon, aimed to design an innovative
   training program for managers.

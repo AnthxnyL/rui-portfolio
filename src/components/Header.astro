@@ -10,6 +10,7 @@ const currentPath = Astro.url.pathname;
     const links = document.querySelectorAll("nav a");
     const burgerIcon = document.querySelector(".burger");
     const closeIcon = document.querySelector(".close");
+    const hr = document.querySelector("hr");
 
     const toggleMenu = (show) => {
         if (show) {
@@ -17,12 +18,14 @@ const currentPath = Astro.url.pathname;
             nav.classList.add("slide-in");
             closeIcon.classList.remove("hidden");
             burgerIcon.classList.add("hidden");
+            hr.classList.add("opacity-0");
         } else {
             nav.classList.remove("slide-in");
             nav.classList.add("slide-out");
             setTimeout(() => nav.classList.add("hidden"), 300);
             closeIcon.classList.add("hidden");
             burgerIcon.classList.remove("hidden");
+            hr.classList.remove("opacity-0");
         }
     };
 
@@ -50,48 +53,54 @@ const currentPath = Astro.url.pathname;
 </script>
 
 <Layout>
-    <header class="flex items-center justify-center lg:pt-10 sm:pt-6 lg:px-desktop sm:px-mobile relative">
-        <div class="flex flex-col justify-center items-center w-full lg:gap-10 sm:gap-6">
-            <div class="flex flex-row justify-between items-center w-full">
-                <!-- Logo -->
-                <div class="flex items-center h-8">
-                    <img src={config.site_logo} alt="Logo" class="w-auto h-full">
-                </div>
-
-                <!-- Burger button -->
-                <button id="burgerBtn" class="lg:hidden sm:flex items-center justify-center" aria-label="Toggle menu">
-                    <svg class="burger" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                        <path d="M2.4 5.3a.8.8 0 0 0 0 1.6h19.2a.8.8 0 0 0 0-1.6H2.4Zm0 6.4a.8.8 0 0 1 0 1.6h19.2a.8.8 0 0 0 0-1.6H2.4Zm0 6.4a.8.8 0 0 0 0 1.6h19.2a.8.8 0 0 0 0-1.6H2.4Z" fill="black"/>
-                    </svg>   
-                    <svg class="close hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                        <path d="M20.57 5.07a.75.75 0 0 0 0-1.06L12 11.37 4.57 3.94a.75.75 0 1 0-1.06 1.06L10.87 12.5 3.43 19.93a.75.75 0 1 0 1.06 1.06L12 13.63l7.43 7.43a.75.75 0 1 0 1.06-1.06L13.13 12.5l7.43-7.43z" fill="black"/>
-                    </svg>           
-                </button>
-            
-
-                <nav class="text-darkgray sm:hidden lg:flex">
-                    <ul class="flex space-x-4">
-                        <li class="link-animate"><a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a></li>
-                        <li class="link-animate"><a href="#projects" class={`nav-link ${currentPath.startsWith('/project') ? 'active' : ''}`}>Projects</a></li>
-                        <li class="link-animate"><a href={ config.links[0].url }>LinkedIn</a></li>
-                        <li class="link-animate"><a href={ `mailto:${ config.links[1].url }`} >Email</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-            <hr class="border-b-1 border-lightgray w-full" />
-        </div>
-
-        <!-- Mobile navigation -->
-        <nav id="mobileNav" class="text-darkgray hidden absolute top-20 left-0 w-full bg-white z-10 border-b-1 border-lightgray">
-            <ul class="flex flex-col items-center space-y-4 py-10">
-                <li class="link-animate"><a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a></li>
-                <li class="link-animate"><a href="#projects" class={`nav-link ${currentPath.startsWith('/project') ? 'active' : ''}`}>Projects</a></li>
-                <li class="link-animate"><a href={config.links[0].url}>LinkedIn</a></li>
-                <li class="link-animate"><a href={config.links[2].url}>Email</a></li>
-            </ul>
+   <!-- HEADER -->
+<header class="flex items-center justify-center lg:pt-10 sm:pt-6 lg:px-desktop sm:px-mobile relative bg-white h-full z-20">
+    <div class="flex flex-col justify-center items-center w-full h-full lg:gap-10 sm:gap-6 bg-white">
+      <div class="flex flex-row justify-between items-center w-full">
+        <!-- Logo -->
+        <a href="/">
+          <div class="flex items-center h-8">
+            <img src={config.site_logo} alt="Logo" class="w-auto h-full" />
+          </div>
+        </a>
+  
+        <!-- Burger button -->
+        <button id="burgerBtn" class="lg:hidden sm:flex items-center justify-center" aria-label="Toggle menu">
+          <!-- burger icon -->
+          <svg class="burger" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+            <path d="M2.4 5.3a.8.8 0 0 0 0 1.6h19.2a.8.8 0 0 0 0-1.6H2.4Zm0 6.4a.8.8 0 0 1 0 1.6h19.2a.8.8 0 0 0 0-1.6H2.4Zm0 6.4a.8.8 0 0 0 0 1.6h19.2a.8.8 0 0 0 0-1.6H2.4Z" fill="black" />
+          </svg>
+          <!-- close icon -->
+          <svg class="close hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+            <path d="M20.57 5.07a.75.75 0 0 0 0-1.06L12 11.37 4.57 3.94a.75.75 0 1 0-1.06 1.06L10.87 12.5 3.43 19.93a.75.75 0 1 0 1.06 1.06L12 13.63l7.43 7.43a.75.75 0 1 0 1.06-1.06L13.13 12.5l7.43-7.43z" fill="black" />
+          </svg>
+        </button>
+  
+        <!-- Desktop nav -->
+        <nav class="text-darkgray sm:hidden lg:flex">
+          <ul class="flex space-x-4">
+            <li class="link-animate"><a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a></li>
+            <li class="link-animate"><a href="#projects" class={`nav-link ${currentPath.startsWith('/project') ? 'active' : ''}`}>Projects</a></li>
+            <li class="link-animate"><a href={config.links[0].url}>LinkedIn</a></li>
+            <li class="link-animate"><a href={`mailto:${config.links[1].url}`}>Email</a></li>
+          </ul>
         </nav>
-    </header>
+      </div>
+  
+      <hr class="border-b w-full border-lightgray"/>
+    </div>
+  </header>
+  
+  <!-- MOBILE NAV (hors du header) -->
+  <nav id="mobileNav" class="text-darkgray hidden absolute top-[50px] left-0 w-full bg-white z-10 border-b border-lightgray">
+    <ul class="flex flex-col items-center space-y-4 py-10">
+      <li class="link-animate"><a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a></li>
+      <li class="link-animate"><a href="#projects" class={`nav-link ${currentPath.startsWith('/project') ? 'active' : ''}`}>Projects</a></li>
+      <li class="link-animate"><a href={config.links[0].url}>LinkedIn</a></li>
+      <li class="link-animate"><a href={config.links[2].url}>Email</a></li>
+    </ul>
+  </nav>
+  
 </Layout>
 
 <style>
@@ -133,8 +142,8 @@ const currentPath = Astro.url.pathname;
     }
 
     @keyframes slideOut {
-        from { transform: translateY(0); opacity: 1; }
-        to { transform: translateY(-100%); opacity: 0; }
+        from { transform: translateY(0); opacity: 1;}
+        to { transform: translateY(-100%); opacity: 0;}
     }
 
     .slide-in { animation: slideIn 0.3s ease-out forwards; }

@@ -9,7 +9,7 @@ export interface Props {
 const { slug, prevProject, nextProject } = Astro.props;
 ---
 
-<div class=" relative bottom-0 flex items-center lg:justify-between sm:justify-center w-full lg:px-20 sm:px-10 lg:flex-row sm:flex-col gap-6">
+<div class=" flex items-center lg:justify-between sm:justify-center w-full lg:px-20 sm:px-10 lg:flex-row sm:flex-col gap-6 font-normal">
     <div class="flex items-center justify-center">
         {prevProject && (
             <a href={`/project/${prevProject.slug}`} class="flex items-center justify-center gap-2">

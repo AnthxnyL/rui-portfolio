@@ -13,17 +13,11 @@ const formattedDescription = description.replace(/\n/g, '<br />');
 
 <div class="flex items-center justify-center py-10">
     <div class="flex lg:items-center sm:items-start justify-between w-full lg:gap-10 sm:gap-6 lg:px-30 sm:px-5 flex-wrap">
-        <div class="flex flex-col items-start justify-start gap-3 max-w-md">
-            <h2 class="uppercase lg:text-4xl sm:text-2xl">{ title }</h2>
+        <div class="flex flex-col items-start justify-start gap-3">
+            <h2 class="uppercase lg:text-4xl sm:text-2xl jump">{ title }</h2>
             <p class="font-extralight lg:text-base sm:text-sm uppercase font-title">{ date } - { field }</p>
         </div>
-        <p class="lg:text-xl sm:text-base font-extralight max-w-xl description" set:html={formattedDescription}>
+        <p class="lg:text-xl sm:text-base font-200 max-w-xl font-extralight" set:html={formattedDescription}>
         </p>
     </div>
 </div>
-
-<style>
-    .description {
-        white-space: pre-line; /* Respecte les sauts de ligne simples */
-    }
-</style>

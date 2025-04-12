@@ -40,15 +40,20 @@ if (!post) {
 }
 ---
 
-<Layout class="flex flex-col items-center justify-center w-full h-full">
+<Layout class="flex flex-col items-center justify-center w-full h-full min-h-screen">
+    
     <Header />
     <Scroller images={post.data.images_project.map((image: any) => image.images)} />
-    <TextProject title={post.data.title} description={post.data.description} date={post.data.date} field={ post.data.field } />
 
-    <LinkProject 
-    slug={post.slug} 
-    prevProject={prevProject ? { slug: prevProject.slug, title: prevProject.data.title } : null}
-    nextProject={nextProject ? { slug: nextProject.slug, title: nextProject.data.title } : null}
-    />
+    <div class="flex flex-col h-full flex-grow ">
+        <TextProject title={post.data.title} description={post.data.description} date={post.data.date} field={ post.data.field } />
+        <LinkProject 
+        slug={post.slug} 
+        prevProject={prevProject ? { slug: prevProject.slug, title: prevProject.data.title } : null}
+        nextProject={nextProject ? { slug: nextProject.slug, title: nextProject.data.title } : null}
+        />
+    </div>
+
+
 </Layout>
 

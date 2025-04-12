@@ -1,6 +1,6 @@
 ---
 hero_section:
-  title: UI - UX  Designer
+  title: "UI - UX<br>Designer"
   text: Based in Paris, I’m always exploring new horizons and emerging fields to
     expand my skills and craft impactful digital experiences.
 about_section:

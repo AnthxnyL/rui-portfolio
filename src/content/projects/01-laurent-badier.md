@@ -1,5 +1,7 @@
 ---
-title: 01 - LAURENT BADIER
+title: "01.
+
+  LAURENT BADIER"
 description: >-
   Test this project, I worked on the redesign of the Laurent Badier website while redefining its brand strategy.
   

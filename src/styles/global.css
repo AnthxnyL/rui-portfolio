@@ -2,7 +2,7 @@
 
 @theme {
     --breakpoint-sm: 0px;
-    --breakpoint-md: 500px;
+    --breakpoint-md: 700px;
     --breakpoint-lg: 880px;
     --breakpoint-xl: 1200px;
     --breakpoint-2xl: 1600px;
@@ -14,7 +14,7 @@
     --color-lightgray: #CBCBCB;
     --color-red: #FF0000;
 
-    --font-title: 'Good Times', sans-serif;
+    --font-title: 'good-times', sans-serif;
     --font-body: 'Roboto', sans-serif;
 
     --padding-desktop : 80px;
@@ -24,21 +24,41 @@
 
 
 @font-face {
-    font-family: 'Good Times';
-    src: url('/assets/fonts/Good-Times-Rg.otf') format('opentype');
-    font-weight: normal;
+    font-family: 'good-times', sans-serif;
+    /* src: url('/fonts/Good-Times-Rg.otf') format('opentype'); */
+    font-weight: 500;
     font-style: normal;
+    display: swap;
 }
 
 @font-face {
+    font-family: 'good-times', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: swap;
+}
+
+@font-face {
+    font-family: 'good-times', sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    display: swap;
+}
+
+
+
+@font-face {
     font-family: 'Roboto';
-    src: url('/assets/fonts/Roboto/Roboto_SemiCondensed-ExtraLight.ttf') format('truetype');
+    src: url('/fonts/Roboto/Roboto_SemiCondensed-ExtraLight.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
 }
 
+
+
 body {
     font-family: var(--font-body);
+    font-weight: 500;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -47,4 +67,8 @@ h1,h2,h3,h4,h5,h6 {
 
 html {
     scroll-behavior: smooth;
+}
+
+.jump {
+    white-space: pre-wrap;
 }

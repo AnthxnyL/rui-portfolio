@@ -12,34 +12,39 @@ const experiences = home.about_section.experiences.map((experience: any) => expe
 ---
 
 
-<div class="flex items-center justify-center lg:pt-30 lg:pt-20 pb-20 lg:px-20 sm:px-5 bg-background">
+<div class="flex items-center justify-center lg:pt-30 sm:pt-20 pb-20 lg:px-20 sm:px-5 bg-background">
     <div class="flex items-center justify-between xl:gap-10 sm:gap-20 w-full xl:flex-row sm:flex-col">
-        <div class="flex flex-col items-start justify-center gap-20">
-            <h2 class="text-white uppercase lg:text-8xl sm:text-4xl">{ home.about_section.title }</h2>
-            { experiences.map((experience:any) => 
-            <div class="flex flex-col items-start justify-center gap-4">
-
-                <h3 class="text-white uppercase lg:text-3xl sm:text-2xl">{ experience.company } - <span class="font-body font-extralight capitalize">{ experience.contract }</span></h3>
-
-                <p class="text-white lg:text-xl sm:text-base">  {formatDate(experience.start_date)} - {experience.end_date ? formatDate(experience.end_date) : 'Present'}</p>
-
-                <ul class="flex flex-col items-start justify-center gap-1 list-disc  list-inside text-gray lg:text-base sm:text-sm">
-                {
-                    experience.tasks.map((task: any) =>
-                    <li>{ task.task_name }</li>
-                )}
-                </ul>
-            </div>
-            )}
-        </div>
-
-        <div class="flex items-center justify-center flex-1 w-full">
-            <div class="flex items-center justify-center relative h-auto xl:w-[50vh] lg:w-[40vh] sm:w-[30vh]">
-                <div class="w-full xl:h-[65vh] lg:h-[55vh] sm:h-[40vh] bg-white rotate-[-10deg]"></div>
-                <div class="absolute w-full h-full flex items-center justify-center z-index-2">
-                    <img src={ home.about_section.about_image } alt="photo" class="fill-content w-full" />
+        <div class="flex flex-col items-start justify-center gap-20 w-full">
+            <h2 class="text-white uppercase lg:text-8xl sm:text-5xl">{ home.about_section.title }</h2>
+            <div class="flex lg:flex-row sm:flex-col lg:items-center sm:items-start justify-between lg:gap-10 sm:gap-20 w-full">
+                <div class="flex flex-col items-start justify-center gap-20">
+                    { experiences.map((experience:any) => 
+                    <div class="flex flex-col items-start justify-center gap-4">
+    
+                        <h3 class="text-white uppercase lg:text-3xl sm:text-2xl font-normal ">{ experience.company } - <span class="font-body font-extralight capitalize">{ experience.contract }</span></h3>
+    
+                        <p class="text-white lg:text-xl sm:text-base">  {formatDate(experience.start_date)} - {experience.end_date ? formatDate(experience.end_date) : 'Present'}</p>
+    
+                        <ul class="flex flex-col items-start justify-center gap-1 list-disc  list-inside text-gray lg:text-base sm:text-sm">
+                        {
+                            experience.tasks.map((task: any) =>
+                            <li>{ task.task_name }</li>
+                        )}
+                        </ul>
+                    </div>
+                    )}
+                </div>
+                <div class="flex items-center justify-center flex-1 w-full">
+                    <div class="flex items-center justify-center relative h-auto xl:w-[65vh] lg:w-[50vh] sm:w-[30vh] max-h-[700px] max-w-[564px]">
+                        <div class="w-full xl:h-[80vh] lg:h-[55vh] sm:h-[40vh] bg-white rotate-[-10deg]"></div>
+                        <div class="absolute w-full h-full flex items-center justify-center z-index-2">
+                            <img src={ home.about_section.about_image } alt="photo" class="fill-content w-full" />
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
+
     </div>
 </div>
