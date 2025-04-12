@@ -4,7 +4,7 @@ hero_section:
   text: Based in Paris, I’m always exploring new horizons and emerging fields to
     expand my skills and craft impactful digital experiences.
 about_section:
-  title: ABOUT
+  title: ABOUT ME
   about_image: /images/pix-rui.webp
   experiences:
     - company: Synerg’hetic
