@@ -1,5 +1,5 @@
 ---
-title: 03.Relume Challenge
+title: 03. RELUME CHALLENGE
 description: >-
   This project, presented during a hackathon, aimed to design an innovative
   training program for managers.
