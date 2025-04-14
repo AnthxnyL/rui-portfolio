@@ -79,10 +79,10 @@ const currentPath = Astro.url.pathname;
         <!-- Desktop nav -->
         <nav class="text-darkgray sm:hidden lg:flex">
           <ul class="flex space-x-4">
-            <li class="link-animate"><a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a></li>
-            <li class="link-animate"><a href="#projects" class={`nav-link ${currentPath.startsWith('/project') ? 'active' : ''}`}>Projects</a></li>
-            <li class="link-animate"><a href={config.links[0].url}>LinkedIn</a></li>
-            <li class="link-animate"><a href={`mailto:${config.links[1].url}`}>Email</a></li>
+            <li class="link-animate font-light"><a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''} `}>Home</a></li>
+            <li class="link-animate font-light font-light"><a href="#projects" class={`nav-link ${currentPath.startsWith('/project') ? 'active' : ''}`}>Projects</a></li>
+            <li class="link-animate font-light"><a href={config.links[0].url}>LinkedIn</a></li>
+            <li class="link-animate font-light" ><a href={`mailto:${config.links[1].url}`}>Email</a></li>
           </ul>
         </nav>
       </div>
@@ -94,10 +94,10 @@ const currentPath = Astro.url.pathname;
   <!-- MOBILE NAV (hors du header) -->
   <nav id="mobileNav" class="text-darkgray hidden absolute top-[50px] left-0 w-full bg-white z-10 border-b border-lightgray">
     <ul class="flex flex-col items-center space-y-4 py-10">
-      <li class="link-animate"><a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a></li>
-      <li class="link-animate"><a href="#projects" class={`nav-link ${currentPath.startsWith('/project') ? 'active' : ''}`}>Projects</a></li>
-      <li class="link-animate"><a href={config.links[0].url}>LinkedIn</a></li>
-      <li class="link-animate"><a href={config.links[2].url}>Email</a></li>
+      <li class="link-animate font-light"><a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''} font-light`}>Home</a></li>
+      <li class="link-animate font-light"><a href="#projects" class={`nav-link ${currentPath.startsWith('/project') ? 'active' : ''}`}>Projects</a></li>
+      <li class="link-animate font-light"><a href={config.links[0].url}>LinkedIn</a></li>
+      <li class="link-animate font-light"><a href={config.links[2].url}>Email</a></li>
     </ul>
   </nav>
   
